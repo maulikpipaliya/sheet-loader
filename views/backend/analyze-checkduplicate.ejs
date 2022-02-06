@@ -1,0 +1,53 @@
+<%- include header.ejs %>
+
+        <%- include sidebar.ejs %>
+
+        <div class="rightpart">
+
+            <div class="log-wrightdashboard">
+                <div class="col-lg-12 tophead">
+                    <h1>Check Duplicate Data </h1>
+                    <div class="info">
+                        <h4>Welcome <label><%= username %></label></h4>
+                        <a href="<%= base_url %>/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bodycontent">
+                <div class="col-lg-12 wrapform">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item" aria-current="page"><a href="<%= base_url %>/dashboard/listingdata/original">Listing Table</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Check Duplicate <%= tbname %></li>
+                        </ol>
+                    </nav>
+
+                    <h3>What fields do you choose as reference to find duplicate data ?</h3>
+
+                    <form method="POST" action="<%= base_url %>/dashboard/analyze-duplicate/">
+
+                        <input type="hidden" name="_csrf" value="<%= csurfToken %>">
+
+                        <input type="hidden" name="tbname" value="<%= tbname %>">
+
+                        <%
+                            for (var i=0;i<fieldlist.length;i++){
+                                %>
+                                <label for="<%= 'a'+i %>"> <input type="checkbox" name="selectfield" id="<%= 'a'+i %>" value="<%= fieldlist[i] %>"> <span></span> <label for="<%= 'a'+i %>"><%= fieldlist[i] %></label></label>
+                                <%
+                            }
+                        %>
+
+                        <input type="submit" name="submit" value="PROCCESS">
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+<%- include footer.ejs %>

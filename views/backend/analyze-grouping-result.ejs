@@ -1,0 +1,48 @@
+<%- include header.ejs %>
+
+        <%- include sidebar.ejs %>
+
+        <div class="rightpart">
+
+            <div class="log-wrightdashboard">
+                <div class="col-lg-12 tophead">
+                    <h1>Grouping Data Result </h1>
+                    <div class="info">
+                        <h4>Welcome <label><%= username %></label></h4>
+                        <a href="<%= base_url %>/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bodycontent">
+                <div class="col-lg-12 wrapform">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item" aria-current="page"><a href="<%= base_url %>/dashboard/listingdata/original">Listing Table</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Counting by Grouping data on table <%= tbname %></li>
+                        </ol>
+                    </nav>
+
+                    <div class="alert alert-success alert-custom" role="alert">
+                      <h5 class="nomargin">Grouping data by field <b><%= fieldchooseresult %></b></h5>
+                    </div>
+
+                    <form method="POST" action="<%= base_url %>/dashboard/exports-data/grouping">
+
+                        <input type="hidden" name="_csrf" value="<%= csurfToken %>">
+
+                        <input type="hidden" name="tbname" value="<%= tbname %>">
+
+                        <input type="hidden" name="fieldchooseresult" value="<%= fieldchooseresult %>">
+
+                        <input type="submit" name="submit" value="Download Grouping Data Result">
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+<%- include footer.ejs %>

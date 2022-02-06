@@ -1,0 +1,131 @@
+<%- include header.ejs %>
+
+        <%- include sidebar.ejs %>
+
+        <div class="rightpart">
+
+            <div class="log-wrightdashboard">
+                <div class="col-lg-12 tophead">
+                    <h1>Listing Data </h1>
+                    <div class="info">
+                        <h4>Welcome <label><%= username %></label></h4>
+                        <a href="<%= base_url %>/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bodycontent">
+                <div class="col-lg-12">
+
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item" aria-current="page"><a href="<%= base_url %>/dashboard/listingdata/original">Listing Table</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">View <%=  %></li>
+                    </ol>
+                  </nav>
+
+                  <h3>Total Record : <%= totalRecord %></h3>
+
+                  <table class="table">
+                      <thead>
+                          <tr>
+                          <%
+                          var i = 1
+                            fieldata.forEach(function(field){
+                                if (i <= 5){
+                                %>
+                                  <th scope="col"><%= field %></th>
+                                <%
+                                }
+                              i++
+                            })
+                          %>
+                          <th>Action</th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                                     
+                        <%
+                          var j = 1
+                          data.forEach(function(rows){
+                            
+                              %>
+
+                              <tr>
+                                  <%
+                                  fieldata.forEach(function(field){
+
+                                    if (j <= 5){
+
+                                      if (field == 'date_a_created'){
+                                        %>
+                                        <td scope="row"><%= dateFormat(rows[field], "mmmm dd, yyyy - hh:MM:ss") %></td>
+                                        <%
+                                      }else{
+                                        %>
+                                        <td scope="row"><%= rows[field] %></td>
+                                        <%
+                                      }
+                                    
+                                    }
+
+                                    j++
+                                  })
+                                  %>
+                                  <td><a href="<%= base_url %>/dashboard/viewdetail/<%= rows.id_a_stand %>/<%= idtable %>">View Detail</a> </td>
+                              </tr>
+
+                              <%
+                            
+                            
+                            j = 1
+                          })
+                        %>
+
+                      </tbody>
+
+                  </table>
+             
+          </table>
+
+          <% if (pageCount > 1) { %>  
+          <ul class="pagination">  
+            <% if (currentPage > 1) { %>
+                <li><a href="<%= url %>/?page=1">&laquo;</a></li>
+            <% } %>
+
+            <% var i = 1;
+            if (currentPage > 5) {
+            i = +currentPage - 4;
+            } %>
+
+            <% if (i !== 1) { %>
+                <li class="disabled"><a href="#">...</a></li>
+            <% } %>
+
+            <% for (i; i<=pageCount; i++) { %>
+              <% if (currentPage == i) { %>
+                  <li class="active"><span><%= i %> </span></li>
+              <% } else { %>
+                  <li><a href="<%= url %>/?page=<%= i %>"><%= i %></a></li>
+              <% } %>
+              <% if (i == (+currentPage + 4)) { %>
+                  <li class="disabled"><a href="#">...</a></li>
+              <% break; } %>
+            <% } %>
+
+
+            <% if (currentPage != pageCount) { %>
+                <li><a href="<%= url %>/?page=<%= pageCount %>">&raquo;</a></li>
+            <% } %>
+          </ul>  
+          <% } %>  
+
+
+                </div>
+            </div>
+
+        </div>
+
+<%- include footer.ejs %>

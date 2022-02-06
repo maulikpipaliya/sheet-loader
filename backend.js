@@ -16,7 +16,7 @@ backendRoute.use(cookieParser());
 backendRoute.use(csurf({ cookie: true }));
 backendRoute.get(base_url+'', function(req, res){
 	res.render('backend/index',{
-		"title": "Digital Data Analized Tools | Login",
+		"title": "S-Loader| Login",
 		"base_url": base_url,
 		"csurfToken": req.csrfToken()
 	})

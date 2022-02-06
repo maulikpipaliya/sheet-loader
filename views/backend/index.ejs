@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title><%= title %></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="/css/bstyle.css" type="text/css" rel="stylesheet">
+
+    </head>
+    <body>
+    	<div class="log-wleft">
+    		<div class="tb">
+    			<div class="cell">
+    				<h1><%= title %></h1>
+
+    				<%
+    					if (messages.message_login){
+    						%>
+    							<label class="text-danger"><%= (messages.message_login) %></label>
+    						<%
+    					}
+
+    				%>
+
+    				<form method="post" action="<%= base_url %>/auth">
+    					<input type="hidden" name="_csrf" value="<%= csurfToken %>">
+    					<input type="text" name="username" placeholder="Username" value="ekas" required>
+    					<input type="password" name="password" placeholder="password" value="1234" required>
+
+    					<input type="submit" class="LOGIN">
+    				</form>
+    			</div>
+    		</div>
+    	</div>
+
+    	<div class="log-wright" style="background:url(images/dev.jpg) no-repeat center center;background-size: cover;-webkit-background-size: cover;-moz-background-size: cover;-ms-background-size: cover;-o-background-size: cover;"></div>
+        
+    </body>
+</html>
