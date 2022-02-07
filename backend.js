@@ -78,6 +78,6 @@ backendRoute.post(base_url+'/auth', function(req, res){
 
 app.use("/test", backendRoute)
 app.listen(8080, function(){
-	console.log("Server is running on port 5000")
+	console.log("Server is running on port 8080")
 }
 );
