@@ -1,8 +1,19 @@
 //endpost which will upload files and seperate
 
 var express = require("express")
+var flash = require('express-flash')
+var bodyParser = require('body-parser')
+var sessions = require('express-session')
+var cookieParser = require("cookie-parser")
+var csurf = require("csurf")
+const app = express();
+
+var base_url = "http://localhost:5000/";
+
 var backendRoute = express.Router()
 
+
+app.set('view engine', 'ejs')
 
 backendRoute.use(flash());
 backendRoute.use(bodyParser.urlencoded({ extended: false }))
@@ -22,6 +33,20 @@ backendRoute.get(base_url+'', function(req, res){
 	})
 	
 });
+
+
+backendRoute.get("/", function(req, res){
+	res.render("backend/index")
+})
+
+app.get("/", function(req, res){
+	res.render("backend/index",{
+		title: "S-Loader| Login",
+	})
+	})	
+
+
+
 backendRoute.post(base_url+'/auth', function(req, res){
 	session = req.session;
 	var username = req.body.username
@@ -50,3 +75,9 @@ backendRoute.post(base_url+'/auth', function(req, res){
 	}
 	
 });
+
+app.use("/test", backendRoute)
+app.listen(8080, function(){
+	console.log("Server is running on port 5000")
+}
+);
