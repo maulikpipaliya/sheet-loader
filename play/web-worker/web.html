@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WebWorker</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+        />
+        <script src="https://unpkg.com/read-excel-file@5.2.26/bundle/read-excel-file.min.js"></script>
+    </head>
+    <body>
+        <input type="file" id="input" />
+
+        <button onclick="init()">start worker</button>
+        <script>
+            const worker = new Worker("./web-worker.js");
+
+            worker.onmessage = function (event) {
+
+
+                console.log("kuch msg aaya worker se");
+                console.log(event.data);
+            };
+
+            worker.onerror = function (event) {
+                console.error("kuch error aayi worker se");
+                console.error(event.message);
+            };
+
+            const input = document.getElementById("input");
+
+            input.addEventListener("change", () => {
+                worker.postMessage(input.files[0]);
+            });
+        </script>
+        <!-- <script src="script.js"></script> -->
+        <!-- <script src="webworker.js"></script> -->
+    </body>
+</html>
