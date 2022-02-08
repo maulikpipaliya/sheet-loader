@@ -1,0 +1,28 @@
+.log-wleftdashboard {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+  background-color: #f8f2ed;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.log-wleftdashboard a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #f48b42;
+  display: block;
+}
+
+.log-wleftdashboard a:hover {
+  color: #827c7b;
+  border-bottom: 1px solid #827c7b;
+}
+
+.rightpart{
+  margin-left: 260px;
+}
