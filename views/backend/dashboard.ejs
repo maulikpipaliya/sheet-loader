@@ -9,7 +9,7 @@
                     <h1>Please upload your single data. </h1>
                     <div class="info">
                         <h4>Welcome <label><%= username %></label></h4>
-                        <a href="/adminiku/logout">Logout</a>
+                        <a class="sl-btn" href="/adminiku/logout">Logout</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
 
                 <div class="col-lg-12 wrapform">
                     
-                    <form method="POST" action="<%= base_url %>/dashboard/uploaddatasingle/?_csrf=<%= csurfToken %>" enctype="multipart/form-data">
+                    <form class="sl-file-box" method="POST" action="<%= base_url %>/dashboard/uploaddatasingle/?_csrf=<%= csurfToken %>" enctype="multipart/form-data">
                         
                                 <p><strong>Choose grouping data :</strong></p>
                                 <label for="ad1"><input type="radio" name="grouping" id="ad1" value="Separate Table" checked> <span></span> <label for="ad1">Separate Table</label></label>
@@ -40,7 +40,7 @@
                                 <div class="wraplisttable">
 
                                     <p><strong>Please choose table : ( leave it blank if you use for the first time )</strong></p>
-                                    <select name="tbname">
+                                    <select class="sl-select" name="tbname">
                                         <option value="">-Choose table-</option>
                                         <%
                                             
@@ -64,9 +64,10 @@
 
                      
                         <p><strong>Upload file ( xls or xlsx ) :</strong></p>
-                        <input type="file" name="file" required=""><br>
+                        <input type="file" name="file" required="">
+                        <br>
                         
-                        <input type="submit" name="submit" value="SUBMIT">
+                        <input class="sl-btn" type="submit" name="submit" value="SUBMIT">
                     </form>
 
                 </div>

@@ -10,6 +10,7 @@
   overflow-x: hidden;
   padding-top: 20px;
 }
+
 .log-wleftdashboard a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -25,4 +26,32 @@
 
 .rightpart{
   margin-left: 260px;
+}
+
+.sl-file-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.sl-btn{
+    font-size: 1rem;
+    background-color: orangered;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.sl-btn:hover, .sl-btn:active{
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.sl-select{
+    padding: 1rem;
+    border-radius: 0.5rem;
 }

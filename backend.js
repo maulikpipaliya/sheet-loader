@@ -18,7 +18,7 @@ var base_url = '';
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, '/views'));
 
-app.use(express.static(path.resolve('./public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 var backendRoute = express.Router()
 backendRoute.use(flash());
@@ -86,9 +86,17 @@ backendRoute.get('/dashboard', (req, res) => {
 		"username" : "Sudo",
 		"listtb": [
 			{
-				tb_name:"Intern"
+				tb_name:"Intern",
+				idmain: "0",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			},{
-				tb_name:"Employee"
+				tb_name:"Employee",
+				idmain: "1",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			}
 		]
 	});
@@ -102,9 +110,17 @@ backendRoute.get('/dashboard/uploadsingle', (req, res) => {
 		"username" : "Sudo",
 		"listtb": [
 			{
-				tb_name:"Intern"
+				tb_name:"Intern",
+				idmain: "0",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			},{
-				tb_name:"Employee"
+				tb_name:"Employee",
+				idmain: "1",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			}
 		]
 	});
@@ -118,9 +134,17 @@ backendRoute.get('/dashboard/uploadmultiple', (req, res) => {
 		"username" : "Sudo",
 		"listtb": [
 			{
-				tb_name:"Intern"
+				tb_name:"Intern",
+				idmain: "0",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			},{
-				tb_name:"Employee"
+				tb_name:"Employee",
+				idmain: "1",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			}
 		]
 	});
@@ -134,9 +158,17 @@ backendRoute.get('/dashboard/tablealias', (req, res) => {
 		"username" : "Sudo",
 		"listtb": [
 			{
-				tb_name:"Intern"
+				tb_name:"Intern",
+				idmain: "0",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			},{
-				tb_name:"Employee"
+				tb_name:"Employee",
+				idmain: "1",
+				tbnameman: "",
+				createdmain: "",
+				alias: ""
 			}
 		]
 	});
