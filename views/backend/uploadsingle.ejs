@@ -1,0 +1,66 @@
+<%- include header.ejs %>
+
+    	<%- include sidebar.ejs %>
+
+    	<div class="rightpart">
+
+            <div class="log-wrightdashboard">
+                <div>
+                    <h1 class="sl-top-heading">Please upload your single data in single table ( columns should have same format ). </h1>
+                    <div class="info">
+                        <h4>Welcome <label><%= username %></label></h4>
+                        <a class="sl-btn" href="/adminiku/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bodycontent">
+                <div class="col-lg-12">
+                    <%
+                        if (messages.message_status_upload){
+                            %>
+                                <div class="alert alert-success" role="alert">
+                                  <%= (messages.message_status_upload) %>
+                                </div>
+                            <%
+                        }
+
+                    %>
+                </div>
+                <div class="col-lg-12 wrapform">
+
+                    <form class="sl-file-box" method="POST" action="<%= base_url %>/dashboard/uploaddatamultiple/?_csrf=<%= csurfToken %>" enctype="multipart/form-data">
+
+                        <p><strong>Please choose table ( required )</strong></p>
+                        <select class="sl-select" name="tbname" required="">
+                                        <option value="">-Choose table-</option>
+                                        <%
+                                            listtb.forEach(function(list){
+                                                if (list.alias == null){
+                                                    %>
+                                                    <option value="<%= list.tb_name  %>"> <%= list.tb_name %> </option>
+                                                    <%
+                                                }else{
+                                                    %>
+                                                    <option value="<%= list.tb_name  %>"> <%= list.tb_name %> [ <%= list.alias  %> ]</option>
+                                                    <%
+                                                }
+                                            })
+                                        %>
+                        </select>
+                        <br>
+
+                        <label>Your file:</label></br>
+                        <div class="sl-drag-n-drop">
+                            <input type="file" name="file" required="">
+                        </div>
+                        <br>
+                        <input class="sl-btn" type="submit" name="submit" value="SUBMIT">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+<%- include footer.ejs %>

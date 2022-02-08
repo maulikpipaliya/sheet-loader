@@ -1,0 +1,80 @@
+.log-wleftdashboard {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+  background-color: #f8f2ed;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.log-wleftdashboard a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #f48b42;
+  display: block;
+}
+
+.log-wleftdashboard a:hover {
+  color: #827c7b;
+  border-bottom: 1px solid #827c7b;
+}
+
+.rightpart{
+  margin-left: 260px;
+}
+
+.rightpart .info{
+    padding: 0px 1rem;
+}
+
+.sl-file-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.sl-btn{
+    font-size: 1rem;
+    background-color: orangered;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.sl-btn:hover, .sl-btn:active{
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.sl-select{
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.sl-top-heading {
+    background-color: #6495ED;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:x-large;
+    padding: 16px;
+}
+
+.sl-drag-n-drop{
+    width: 32%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
