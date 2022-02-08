@@ -28,6 +28,10 @@
   margin-left: 260px;
 }
 
+.rightpart .info{
+    padding: 0px 1rem;
+}
+
 .sl-file-box{
     display: flex;
     flex-direction: column;
@@ -54,4 +58,23 @@
 .sl-select{
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+.sl-top-heading {
+    background-color: #6495ED;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:x-large;
+    padding: 16px;
+}
+
+.sl-drag-n-drop{
+    width: 32%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
