@@ -12,6 +12,7 @@ var dotenv = require('dotenv')
 
 const app = express();
 
+const fileRouter = require('./fileUpload.router')
 
 dotenv.config()
 
@@ -245,6 +246,7 @@ backendRoute.get('/dashboard/chart/:idmain', (req, res) => {
 
 
 app.use('/', backendRoute);
+app.use('/upload',fileRouter)
 
 app.listen(PORT, () => {
 	console.log(`App is listerning on ${PORT}`);
