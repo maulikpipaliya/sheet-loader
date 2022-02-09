@@ -244,9 +244,9 @@ backendRoute.get('/dashboard/chart/:idmain', (req, res) => {
 	res.status(200).send("successfull");
 });
 
+app.use('/upload',fileRouter)
 
 app.use('/', backendRoute);
-app.use('/upload',fileRouter)
 
 app.listen(PORT, () => {
 	console.log(`App is listerning on ${PORT}`);
