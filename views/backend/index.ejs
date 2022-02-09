@@ -15,7 +15,7 @@
     	<div class="log-wleft">
     		<div class="tb">
     			<div class="cell">
-    				<h1><%= title %></h1>
+    				<h1 class="sl-top-heading sl-heading-login-page"><%= title %></h1>
 
     				<%
     					if (messages.message_login){
@@ -26,13 +26,16 @@
 
     				%>
 
-    				<form method="post" action="<%= base_url %>/auth">
-    					<input type="hidden" name="_csrf" value="<%= csurfToken %>">
-    					<input type="text" name="username" placeholder="Username" value="ekas" required>
-    					<input type="password" name="password" placeholder="password" value="1234" required>
-
-    					<input type="submit" class="LOGIN">
-    				</form>
+					<div class="sl-login-container">
+						<form class="sl-login-container-child" method="post" action="<%= base_url %>/auth">
+							<input type="hidden" name="_csrf" value="<%= csurfToken %>">
+							<input type="text" name="username" placeholder="Username" value="ekas" required><br>
+							<input type="password" name="password" placeholder="Password" value="1234" required><br>
+	
+							<input class="sl-btn login" type="submit" class="LOGIN">
+						</form>
+					</div>
+    				
     			</div>
     		</div>
     	</div>
