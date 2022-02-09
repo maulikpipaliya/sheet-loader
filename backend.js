@@ -8,6 +8,8 @@ var cookieParser = require("cookie-parser")
 var csurf = require("csurf")
 const app = express();
 
+const fileRouter = require('./server/src/api/routes/fileUpload.router')
+
 var base_url = "http://localhost:5000/";
 
 var backendRoute = express.Router()
@@ -77,6 +79,8 @@ backendRoute.post(base_url+'/auth', function(req, res){
 });
 
 app.use("/test", backendRoute)
+app.use('/upload',fileRouter)
+
 app.listen(8080, function(){
 	console.log("Server is running on port 8080")
 }
