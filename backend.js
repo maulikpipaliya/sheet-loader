@@ -8,10 +8,15 @@ var cookieParser = require('cookie-parser')
 var csurf = require('csurf')
 var path = require('path')
 var md5 = require('md5')
+var dotenv = require('dotenv')
 
 const app = express();
 
-var PORT = 5000;
+
+dotenv.config()
+
+var PORT = process.env.PORT || 5001;
+
 //var base_url = `http://localhost:${PORT}/`;
 var base_url = '';
 
