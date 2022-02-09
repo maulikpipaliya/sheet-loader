@@ -12,7 +12,7 @@ var dotenv = require('dotenv')
 
 const app = express();
 
-const fileRouter = require('./server/src/api/routes/fileUpload.router')
+const fileRouter = require('./fileUpload.router')
 
 dotenv.config()
 
