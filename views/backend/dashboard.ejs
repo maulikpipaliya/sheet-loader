@@ -24,7 +24,6 @@
                                 </div>
                             <%
                         }
-
                     %>
                 </div>
 
@@ -43,9 +42,7 @@
                                     <select class="sl-select" name="tbname">
                                         <option value="">-Choose table-</option>
                                         <%
-                                            
                                             listtb.forEach(function(list){
-
                                                 if (list.alias == null){
                                                     %>
                                                     <option value="<%= list.tb_name  %>"> <%= list.tb_name %> </option>
@@ -54,8 +51,7 @@
                                                     %>
                                                     <option value="<%= list.tb_name  %>"> <%= list.tb_name %> [ <%= list.alias  %> ]</option>
                                                     <%
-                                                }
-                                                
+                                                }   
                                             })
                                         %>
                                     </select>
@@ -65,7 +61,7 @@
                      
                         <p><strong>Upload file ( xls or xlsx ) :</strong></p>
                         <div class="sl-drag-n-drop">
-                            <input type="file" name="file" required="">
+                            <input type="file" name="file" class="input-file" required="">
                         </div>
                         </br>
                         
@@ -77,10 +73,7 @@
 
             <div class="tablelisting">
                 <div class="col-lg-12">
-
                 </div>
             </div>
-
         </div>
-
 <%- include footer.ejs %>
