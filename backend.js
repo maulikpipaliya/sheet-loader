@@ -13,6 +13,7 @@ var dotenv = require('dotenv')
 const app = express();
 
 const fileRouter = require('./fileUpload.router')
+const tableRouter = require('./tableRoutes')
 
 dotenv.config()
 
@@ -244,7 +245,8 @@ backendRoute.get('/dashboard/chart/:idmain', (req, res) => {
 	res.status(200).send("successfull");
 });
 
-app.use('/upload',fileRouter)
+app.use('/api/upload', fileRouter)
+app.use('/api/table', tableRouter)
 
 app.use('/', backendRoute);
 

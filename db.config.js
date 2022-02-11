@@ -1,6 +1,12 @@
 const mysql = require("mysql");
 const dotenv =  require('dotenv');
-dotenv.config();
+const path = require('path')
+
+//absolute is required
+dotenv.config({
+    path:path.resolve(__dirname, './.env')
+});
+
 
 const connectToDatabase = () => {
     try {
@@ -11,6 +17,7 @@ const connectToDatabase = () => {
             database: process.env.DB_DATABASE,
             port: process.env.DB_PORT,
         });
+
         //if connection is successful
         if (
             connection.connect(function (err) {
