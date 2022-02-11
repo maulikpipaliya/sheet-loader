@@ -1,12 +1,12 @@
 //for web-worker
-let worker = new Worker('/js/web-worker.js');
+let worker = new Worker("/js/web-worker.js");
 let inputs = document.getElementsByClassName("input-file");
 let output = {};
 let index = 0;
 for (let i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener("change", () => {
-        worker.postMessage(inputs[i].files[0]);
-    });
+  inputs[i].addEventListener("change", () => {
+    worker.postMessage(inputs[i].files[0]);
+  });
 }
 
 worker.onmessage = (event) => {
@@ -38,17 +38,4 @@ worker.onmessage = (event) => {
         console.log(output);
         sendExcel();
     }
-}
-
-function sendExcel() {
-    fetch('/dashboard/uploaddatasingle', {
-        headers: {
-            'content-type': '' 
-        },
-        body: output
-    }).then(response => {
-        return data.json()
-    }).then(data => {
-        console.log(data)
-    })
 }

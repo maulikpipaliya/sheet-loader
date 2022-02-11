@@ -133,3 +133,7 @@
 input[type="checkbox"] {
   cursor: pointer;
 }
+
+.breadcrumb {
+  width: 85%;
+}

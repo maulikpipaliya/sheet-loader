@@ -17,12 +17,12 @@
             <div class="bodycontent sl-file-box">
                 <div class="col-lg-12 wrapform">
 
-                    <!-- <nav aria-label="breadcrumb">
+                    <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item" aria-current="page"><a href="<%= base_url %>/dashboard/listingdata/original">Listing Table</a></li>
                           <li class="breadcrumb-item active" aria-current="page">Counting by Grouping data on table <%= tbname %></li>
                         </ol>
-                    </nav> -->
+                    </nav>
 
                     <h3>What fields do you choose for grouping ?</h3>
 
@@ -30,9 +30,7 @@
                         
                     <input type="hidden" name="_csrf" value="<%= csurfToken %>">
 
-                        <input type="hidden" name="tbname" value="<%= tbname %>">
-
-                        <input type="hidden" name="fieldlist" value="<%= fieldlist %>">
+                        <input type="hidden" name="tableDetails" value="<%= JSON.stringify(object) %>">
 
                         <table class="table table-striped" id="grouping" style="margin-top: 50px;">
                                 <thead>
@@ -53,8 +51,8 @@
                             for (var i=0;i<fieldlist.length;i++){
                                 %>
                                 <tr>
-                                    <td><label for="<%= 'a'+i %>"> <input type="checkbox" style="width: 20px; height:20px ;" name="selectfield" id="<%= 'a'+i %>" value="<%= fieldlist[i] %>" onchange="checkAll(this)"> </label></td>
-                                    <td><label for="<%= 'a'+i %>"> <input type="checkbox" style="width: 20px; height:20px ;" name="selectfield" id="<%= 'b'+i %>" value="<%= fieldlist[i] %>"> </label>
+                                    <td><label for="<%= 'a'+i %>"> <input type="checkbox" style="width: 20px; height:20px ;" name="FieldUnique" id="<%= 'a'+i %>" value="<%= fieldlist[i] %>" onchange="checkAll(this)"> </label></td>
+                                    <td><label for="<%= 'a'+i %>"> <input type="checkbox" style="width: 20px; height:20px ;" name="FieldProjection" id="<%= 'b'+i %>" value="<%= fieldlist[i] %>"> </label>
                                     </td>
                                     <td>
                                         <label for="<%= 'a'+i %>" style="margin-left: 10px;"><%= fieldlist[i] %></label>
@@ -65,7 +63,7 @@
                         %>
                     </table>
                     <br>
-                        <input type="submit" name="submit" class="sl-btn logout" value="Create Table">
+                        <input type="submit" id="submit" name="submit" class="sl-btn logout" value="Create Table">
                     </form>
 
                 </div>
