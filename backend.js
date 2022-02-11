@@ -9,11 +9,11 @@ var csurf = require("csurf");
 var path = require("path");
 var md5 = require("md5");
 var dotenv = require("dotenv");
-var localStorage = require("localstorage");
 
 const app = express();
 
 const fileRouter = require("./fileUpload.router");
+const { table } = require("console");
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 var backendRoute = express.Router();
 backendRoute.use(flash());
-backendRoute.use(bodyParser.urlencoded({ extended: false }));
+backendRoute.use(bodyParser.urlencoded({ extended: true }));
 backendRoute.use(bodyParser.json());
 backendRoute.use(
   sessions({
@@ -213,6 +213,11 @@ backendRoute.get("/dashboard/listingdata/original", (req, res) => {
 
 backendRoute.post("/dashboard/uploaddatasingle", (req, res) => {
   //API to uplaod a single file on the server
+  var object = {
+    tbname: "student",
+    fieldlist: ["0", "id", "Age", "Name", "City"],
+    rows: [{ name: "deep" }],
+  };
   res.render("backend/analyze-grouping", {
     title: "S-Loader | Analyze-grouping",
     base_url: base_url,
@@ -220,12 +225,20 @@ backendRoute.post("/dashboard/uploaddatasingle", (req, res) => {
     username: "Sudo",
     tbname: "student",
     fieldlist: ["0", "id", "Age", "Name", "City"],
+    object: object,
   });
 });
 
 backendRoute.post("/dashboard/uploaddatamultiple", (req, res) => {
   //API to upload multiple files on the server
-  res.status(200).send("successfull");
+  res.render("backend/analyze-grouping", {
+    title: "S-Loader | Analyze-grouping",
+    base_url: base_url,
+    csurfToken: req.csrfToken(),
+    username: "Sudo",
+    tbname: "student",
+    fieldlist: ["0", "id", "Age", "Name", "City", "Country"],
+  });
 });
 
 backendRoute.post("/dashboard/createtablealias", (req, res) => {
@@ -236,30 +249,64 @@ backendRoute.post("/dashboard/createtablealias", (req, res) => {
 
 backendRoute.get("/dashboard/detaildata/:idmain", (req, res) => {
   //To view the date in the file or table
-  console.log("detaildata" + req.params.idmain);
-  res.status(200).send("successfull");
+  res.render("backend/viewdetail", {
+    title: "S-Loader | View - Details",
+    base_url: base_url,
+    csurfToken: req.csrfToken(),
+    username: "Sudo",
+    tbname: "student",
+    postrowdata: [
+      {
+        date_a_created: "2012-01-13 T11:00:00",
+      },
+    ],
+    fieldata: ["date_a_created"],
+    idtable: req.params.idmain,
+  });
 });
 
 backendRoute.get("/dashboard/exports/:idmain", (req, res) => {
   //To download data from the server
-  console.log("exports" + req.params.idmain);
   res.status(200).send("successfull");
 });
 
 backendRoute.get("/dashboard/analyze/:idmain", (req, res) => {
   //To Analyze the data of the server
-  console.log("analyze" + req.params.idmain);
-  res.status(200).send("successfull");
+  res.render("backend/analyze", {
+    title: "S-Loader | Analyze Data",
+    base_url: base_url,
+    csurfToken: req.csrfToken(),
+    username: "Sudo",
+    tbname: "student",
+  });
 });
 
 backendRoute.get("/dashboard/chart/:idmain", (req, res) => {
   //To create a chart out of the data from the server
-  console.log("chart" + req.params.idmain);
-  res.status(200).send("successfull");
+  res.render("backend/chart", {
+    title: "S-Loader | Chart",
+    base_url: base_url,
+    csurfToken: req.csrfToken(),
+    username: "Sudo",
+    tbname: "student",
+  });
 });
 
 backendRoute.post("/dashboard/analyze-grouping", (req, res) => {
-  res.status(200).send("successfull");
+  var tableDetails = JSON.parse(req.body.tableDetails);
+  tableDetails = {
+    ...tableDetails,
+    unique: req.body.FieldUnique,
+    projection: req.body.FieldProjection,
+  };
+  res.render("backend/analyze-grouping-result", {
+    title: "S-Loader | Analyze-grouping-result",
+    base_url: base_url,
+    csurfToken: req.csrfToken(),
+    username: "Sudo",
+    tbname: tableDetails.tbname,
+    fieldchooseresult: "result",
+  });
 });
 
 app.use("/upload", fileRouter);

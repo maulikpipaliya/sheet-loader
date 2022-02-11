@@ -1,0 +1,31 @@
+<%- include header.ejs %> <%- include sidebar.ejs %>
+
+<div class="rightpart">
+  <div class="log-wrightdashboard">
+    <h1 class="sl-top-heading">Chart of Your Data</h1>
+    <div class="sl-profile">
+      <h5>Welcome <label><%= username %></label></h5>
+      <a class="sl-btn logout" href="<%= base_url %>/logout">Logout</a>
+    </div>
+  </div>
+
+  <div class="bodycontent">
+    <div class="col-lg-12 wrapform">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" aria-current="page">
+            <a href="<%= base_url %>/dashboard/listingdata/original"
+              >Listing Table</a
+            >
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Chart <%= tbname %>
+          </li>
+        </ol>
+      </nav>
+      Coming Soon ....
+    </div>
+  </div>
+</div>
+
+<%- include footer.ejs %>
