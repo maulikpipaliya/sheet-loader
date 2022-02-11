@@ -9,7 +9,6 @@ var csurf = require("csurf");
 var path = require("path");
 var md5 = require("md5");
 var dotenv = require("dotenv");
-var localStorage = require("localstorage");
 
 const app = express();
 
@@ -212,6 +211,7 @@ backendRoute.get("/dashboard/listingdata/original", (req, res) => {
 });
 
 backendRoute.post("/dashboard/uploaddatasingle", (req, res) => {
+  console.log(req.body.file);
   //API to uplaod a single file on the server
   res.render("backend/analyze-grouping", {
     title: "S-Loader | Analyze-grouping",

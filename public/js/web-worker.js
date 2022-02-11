@@ -27,5 +27,4 @@ onmessage = (event) => {
 
 onerror = (event) => {
     console.log("Web-Worker-Error:");
-    console.log(event.data);
 }

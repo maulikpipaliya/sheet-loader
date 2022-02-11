@@ -10,6 +10,7 @@ router.post(
     "/uploadfile",
     imageUpload.single("excel"),
     (req, res) => {
+        console.log("vfnbjdnbfdj");
         res.send(req.file);
     },
     (error, req, res, next) => {
