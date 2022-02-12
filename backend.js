@@ -55,8 +55,8 @@ backendRoute.get(base_url + "", function (req, res) {
 
 backendRoute.post(base_url + "/auth", function (req, res) {
   session = req.session;
-  var username = req.body.username;
-  var password = req.body.password;
+  //var username = req.body.username;
+  //var password = req.body.password;
   // if (username != "" && password !=""){
   // 		var fixusername = username.replace(/[^a-zA-Z0-9]/g,"")
   // 		var fixpassword = md5(password)
