@@ -10,7 +10,7 @@ router.post(
   "/uploadfile",
   imageUpload.single("file"),
   (req, res) => {
-    res.send(req.file);
+    res.status(200).send(req.file);
   },
   (error, req, res, next) => {
     res.status(400).send({ error: error.message });
