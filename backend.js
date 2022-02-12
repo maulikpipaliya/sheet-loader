@@ -13,6 +13,7 @@ var dotenv = require("dotenv");
 const app = express();
 
 const fileRouter = require("./fileUpload.router");
+const tableRouter = require('./tableRoutes')
 
 dotenv.config();
 
