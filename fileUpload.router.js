@@ -7,17 +7,6 @@ const router = Router({
 });
 
 router.post(
-<<<<<<< HEAD
-    "/uploadfile",
-    imageUpload.single("excel"),
-    (req, res) => {
-        console.log("vfnbjdnbfdj");
-        res.send(req.file);
-    },
-    (error, req, res, next) => {
-        res.status(400).send({ error: error.message });
-    }
-=======
   "/uploadfile",
   imageUpload.single("file"),
   (req, res) => {
@@ -26,7 +15,6 @@ router.post(
   (error, req, res, next) => {
     res.status(400).send({ error: error.message });
   }
->>>>>>> c1ecba56f3daf3d268713b8dc681753bbd3b00f0
 );
 
 router.post(

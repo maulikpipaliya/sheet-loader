@@ -14,6 +14,7 @@ const app = express();
 
 const fileRouter = require("./fileUpload.router");
 const { table } = require("console");
+const tableRouter = require('./tableRoutes')
 
 dotenv.config();
 
@@ -310,7 +311,8 @@ backendRoute.post("/dashboard/analyze-grouping", (req, res) => {
   });
 });
 
-app.use("/upload", fileRouter);
+app.use('/api/upload', fileRouter)
+app.use('/api/table', tableRouter)
 
 app.use("/", backendRoute);
 
