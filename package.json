@@ -1,31 +1,13 @@
 {
-  "name": "sheet-loader",
-  "type": "module",
+  "name": "sloader",
   "version": "1.0.0",
-  "description": "Load Excel Sheets to Database",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/src/index.js",
-    "dev" : "nodemon server/src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maulikpipaliya/sheet-loader.git"
-  },
-  "keywords": [
-    "Load",
-    "Excel",
-    "Sheets",
-    "to",
-    "Database"
-  ],
-  "author": "Dev Team",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maulikpipaliya/sheet-loader/issues"
-  },
-  "homepage": "https://github.com/maulikpipaliya/sheet-loader#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "chart.js": "^2.8.0",
@@ -47,8 +29,5 @@
     "xls-to-json-lc": "^0.3.4",
     "xlsx": "^0.14.3",
     "xlsx-to-json-lc": "^0.5.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   }
 }
