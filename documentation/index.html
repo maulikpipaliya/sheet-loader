@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>S-Loader - Import excel file into MYSQL with Expressjs</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="col-lg-2 col-lg-offset-1 bodyheight sidebar">
+    	<h1>S-Loader</h1>
+    	<h3>Navigation</h3>
+    	<ul>
+			<li><a href="#about">About</a></li>
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#runningapps">Running Apps</a></li>
+			<li><a href="#module">Additional Module</a></li>
+		
+    	</ul>
+
+    	<p>&copy; 2022 <a href="http://www.searce.com" target="_blank">S-Loader Team</a></p>
+    </div>
+    <div class="col-lg-7 bodyheight content">
+    	<div class="col-lg-12 contentdetail" id="about">
+	    	<h1>Documentation</h1>
+	    	<h2>S-Loader - Import excel file into MYSQL with Expressjs</h2>
+	    
+        <hr>
+
+	    	<p>
+	    		S-Loader is a web apps build with expressjs and MYSQL database. This apps have some simple feature but very useful for your Database or Datawarehouse concerns. In accordance of the title, this app can upload your existing excel file with format .xlsx or .xls into database MYSQL. It can use upload multiple files, but developer limit 5 files for server optimized reason. It has some of feature too. <br><br>
+
+                <strong>Feature : </strong><br>
+                1. Import excel file to Mysql DB<br>
+                2. Upload multiple excel file into DB<br>
+                3. Check duplicate data<br>
+                4. Grouping data<br>
+                5. Chart data monitor<br>
+                6. Paging
+	    	</p>
+    	</div>
+
+    	<div class="col-lg-12 contentdetail" id="installation">
+    		<h1>Installation</h1>
+    		<hr>
+			
+    		<p>
+                Make sure you already install nodejs and mysql on your computer or your server. If you not install yet, please install it first. <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a> . Please choose depend on your environment. For the additional please install npm <a href="https://www.npmjs.com/get-npm">https://www.npmjs.com/get-npm</a>. Then install MYSQL <a href="https://dev.mysql.com/downloads/windows/installer/8.0.html">https://dev.mysql.com/downloads/windows/installer/8.0.html</a>. Once you install it, just follow below step.<br><br>
+                1. Create database datauploaddb. Then import datauploaddb.sql.<br>
+                2. Adjust the mysql setting on file sqlcon.js on config directory. Put your host, user, and password mysql.<br>
+    			<br><br>
+
+             
+    		</p>
+    	</div>
+
+    	<div class="col-lg-12 contentdetail" style="top-margin" id="runningapps">
+        	<h1>Running the Apps</h1>
+    		<hr>
+    		<p>
+    			To running the application follow below step.<br><br> 
+    			1. Open command prompt. Then find the folder where your extract the application. Then type command "node apps.js". The app will listen on port 3002. Make sure port 3002 is free. The result will looks like below<br>
+                <img src="assets/images/runningapps.png"><br><br>
+
+                * If you cannot see the return text. You probably have problem with your nodejs installation or you need to update your npm with command "npm update".
+                It will update the npm module.
+
+
+    		</p>
+    	</div>
+
+    	<div class="col-lg-12 contentdetail" id="module">
+    		<h1>Module</h1>
+    		<hr>
+    		<p>
+    			Modules that we have used <br>
+    			1. Mysql<br>
+    			2. body-parser<br>
+                3. express-session<br>
+                4. express-flash<br>
+                5. cookie-parser<br>
+                6. dateformat<br>
+                7. csurf<br>
+                8. jsonwebtoken<br>
+                9. ejs<br>
+                10. strtotime<br>
+                11. create-html<br>
+                12. adm-zip<br>
+                13. cookie-parser<br>
+                14. excel-export<br>
+                15. md5<br>
+                16. uniqid<br>
+                17. multer<br>
+                18. xls-to-json-lc<br>
+                19. xlsx-to-json-lc<br>
+                20. chart.js<br>
+    		</p>
+    	</div>
+
+    
+
+    </div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    	$('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on("click",function(event) {
+              // On-page links
+              if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+                && 
+                location.hostname == this.hostname
+              ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                  // Only prevent default if animation is actually gonna happen
+                  event.preventDefault();
+                  $('html, body').animate({
+                    scrollTop: target.offset().top
+                  }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                      return false;
+                    } else {
+                      $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                      $target.focus(); // Set focus again
+                    };
+                  });
+                }
+              }
+      });
+    </script>
+
+  </body>
+</html>

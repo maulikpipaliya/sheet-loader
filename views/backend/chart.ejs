@@ -1,31 +1,69 @@
-<%- include header.ejs %> <%- include sidebar.ejs %>
+<link href="/css/Chart.min.css" type="text/css" rel="stylesheet">
+<style>
+    #myChart{
 
-<div class="rightpart">
-  <div class="log-wrightdashboard">
-    <h1 class="sl-top-heading">Chart of Your Data</h1>
-    <div class="sl-profile">
-      <h5>Welcome <label><%= username %></label></h5>
-      <a class="sl-btn logout" href="<%= base_url %>/logout">Logout</a>
+    }
+</style>
+
+<h1>ORDER BY DATE CREATED</h1>
+labels:  <%- JSON.stringify(chartlabel) %>
+
+<br><br>
+
+chartdata: <%= chartdata %>
+
+
+
+    <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="myChart"></canvas>
     </div>
-  </div>
 
-  <div class="bodycontent">
-    <div class="col-lg-12 wrapform">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page">
-            <a href="<%= base_url %>/dashboard/listingdata/original"
-              >Listing Table</a
-            >
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Chart <%= tbname %>
-          </li>
-        </ol>
-      </nav>
-      Coming Soon ....
-    </div>
-  </div>
-</div>
+	
+	<script src="/js/Chart.min.js"></script>
+	<script>
+        var chrt = document.getElementById("myChart").getContext("2d");
 
-<%- include footer.ejs %>
+        function beforePrintHandler () {
+            for (var id in Chart.instances) {
+                Chart.instances[id].resize();
+            }
+        }
+
+
+        var myChart = new Chart(chrt, {
+            type: 'line',
+            data: {
+                labels: <%- JSON.stringify(chartlabel) %>,
+                datasets: [{
+                    label: '# of Votes',
+                    data: [ <%= chartdata %> ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
